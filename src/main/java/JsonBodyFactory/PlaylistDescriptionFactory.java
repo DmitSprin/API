@@ -1,18 +1,17 @@
-package JsonBodyCreators;
+package JsonBodyFactory;
 
-import JsonsRepo.PlayListJsonBodyDescriptor;
+import PojoDescriptor.PlayListDescriptionPojo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
 
-public class PlaylistDescriptionBodyCreator {
+public class PlaylistDescriptionFactory {
 
-    public static String createPlaylistDescriptionObj(String name , String description ,boolean publc) {
+    public static String createPlaylistDescriptionBody(String name, String description, boolean publc) {
         ObjectMapper objectMapper = new ObjectMapper();
-        PlayListJsonBodyDescriptor playlistBuilder = new PlayListJsonBodyDescriptor();
-        playlistBuilder.setName(name);
-        playlistBuilder.setDescription(description);
-       // playlistBuilder.setPublic(publc);
+        var playlistBuilder = PlayListDescriptionPojo.builder()
+                .name(name).description(description)
+                .Public(publc) .build();
         String JsonPlaylistDescription = null;
         try {
             return objectMapper.writeValueAsString(playlistBuilder);
