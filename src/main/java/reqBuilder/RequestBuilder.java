@@ -17,7 +17,7 @@ public class RequestBuilder {
                 setBaseUri(baseUrl)
                 .setContentType(ContentType.JSON)
                 .log(LogDetail.BODY)
-                .addHeader("Authorization","Bearer "+UserCredentials.getToken())
+                .addHeader("Authorization", "Bearer " + UserCredentials.getToken())
                 .build();
     }
 }

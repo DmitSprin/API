@@ -13,5 +13,6 @@ public class UserCredentials {
     }
 
     public static String getToken() {
-        return token;}
+        return token;
+    }
 }

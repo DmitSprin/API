@@ -3,7 +3,7 @@ package JsonBodyFactory;
 import PojoDescriptor.PlayListDescriptionPojo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Assert;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class PlaylistDescriptionFactory {
 
@@ -11,13 +11,13 @@ public class PlaylistDescriptionFactory {
         ObjectMapper objectMapper = new ObjectMapper();
         var playlistBuilder = PlayListDescriptionPojo.builder()
                 .name(name).description(description)
-                .Public(publc) .build();
+                .Public(publc).build();
         String JsonPlaylistDescription = null;
         try {
             return objectMapper.writeValueAsString(playlistBuilder);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
-            Assert.assertTrue(JsonPlaylistDescription != null);
+            assertThat(JsonPlaylistDescription != null);
         }
         return JsonPlaylistDescription;
     }
