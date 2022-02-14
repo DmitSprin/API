@@ -14,9 +14,9 @@ public class PlaylistItemsPojo {
     private List<Items> items;
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
 class Items {
     @JsonProperty("added_at ")
     private String addedAt;
