@@ -6,14 +6,12 @@ import PojoDescriptor.PlaylistItemsPojo;
 import io.restassured.response.Response;
 import reqBuilder.RequestBuilder;
 import utils.UserCredentials;
-
 import static JsonBodyFactory.PlaylistDescriptionFactory.createPlaylistDescriptionBody;
 import static io.restassured.RestAssured.given;
 
 public class PlayListSteps {
 
     public PlaylistItemsPojo getPlayListItems(String playListId) {
-        //"5ZUKuaEdUU0fEbwd2Af3WF"
         return given(RequestBuilder.getReqSpec())
                 .pathParam("playlist_id", playListId)
                 .get("playlists/{playlist_id}/tracks").as(PlaylistItemsPojo.class);
@@ -41,17 +39,17 @@ public class PlayListSteps {
                 .put("users/{user_id}/playlists").then().extract().asPrettyString();
     }
 
-    public Response addItemsToPlaylist(String playListId) {
+    public Response addItemsToPlaylist(String addItem, String playListId) {
         return given(RequestBuilder.getReqSpec())
                 .pathParam("playlist_id", playListId)
-                .queryParams("uris", playListId)
-                .post("users/{user_id}/playlists");
+                .queryParams("uris", addItem)
+                .post("users/{playlist_id}/tracks");
     }
 
     public Response removeSongFromPlaylist(String playListId, String sound) {
         return given(RequestBuilder.getReqSpec())
                 .pathParam("playlist_id", playListId)
                 .queryParams("uris", sound)
-                .delete("playlists/{playlist_id/}tracks");
+                .delete("playlists/{playlist_id}/tracks");
     }
 }
