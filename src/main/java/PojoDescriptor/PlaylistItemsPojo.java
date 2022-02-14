@@ -18,7 +18,7 @@ public class PlaylistItemsPojo {
 @Getter
 @Setter
 class Items {
-    @JsonProperty("added_at ")
+    @JsonProperty("added_at")
     private String addedAt;
     @JsonProperty("is_local")
     private boolean isLocal;
