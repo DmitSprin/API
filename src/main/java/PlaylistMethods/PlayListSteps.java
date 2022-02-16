@@ -46,10 +46,10 @@ public class PlayListSteps {
                 .post("users/{playlist_id}/tracks");
     }
 
-    public Response removeSongFromPlaylist(String playListId, String sound) {
+    public Response removeSongFromPlaylist(String playListId, String soundId) {
         return given(RequestBuilder.getReqSpec())
                 .pathParam("playlist_id", playListId)
-                .queryParams("uris", sound)
+                .queryParams("uris", soundId)
                 .delete("playlists/{playlist_id}/tracks");
     }
 }

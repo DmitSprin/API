@@ -7,11 +7,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PlaylistDescriptionFactory {
 
-    public static String createPlaylistDescriptionBody(String name, String description, boolean publc) {
+    public static String createPlaylistDescriptionBody(String name, String description, boolean accessLevel) {
         ObjectMapper objectMapper = new ObjectMapper();
         var playlistBuilder = PlayListDescriptionPojo.builder()
                 .name(name).description(description)
-                .Public(publc).build();
+                .Public(accessLevel).build();
         String JsonPlaylistDescription = null;
         try {
             return objectMapper.writeValueAsString(playlistBuilder);

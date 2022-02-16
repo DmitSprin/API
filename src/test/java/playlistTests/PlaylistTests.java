@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PlaylistTests {
 
     private PlayListSteps playListSteps = new PlayListSteps();
-    private String playListId = "5ZUKuaEdUU0fEbwd2Af3WF";
+    private final String playListId = "5ZUKuaEdUU0fEbwd2Af3WF";
 
     @Test()
     public void createPlayListTest() {
